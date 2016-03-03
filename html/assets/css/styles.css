@@ -72,3 +72,14 @@ h1 span {
 #p3s {
 	background-color: gray;
 }
+
+#snek {
+	cursor: pointer;
+	position: absolute;
+	font-size: 10px;
+	bottom: 0;
+	right: 0;
+	padding: 5px;
+	background-color: black;
+	color: white;
+}

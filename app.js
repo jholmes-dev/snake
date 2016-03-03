@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 
 });
 
-var gameSpeed = 100;
+var gameSpeed = 75;
 var started = false;
 var renderLoop;
 var pNum = 0;
@@ -528,7 +528,7 @@ function genWall() {
 				wallLoc[0] = Math.floor(Math.random() * board.length);
 				wallLoc[1] = Math.floor(Math.random() * board.length);
 			} while (board[wallLoc[0]][wallLoc[1]] != null);
-		}, Math.floor(Math.random() * 200 + 100));
+		}, Math.floor(Math.random() * 14000 + 1000));
 	}
 } // End Wall Gen
 
@@ -586,10 +586,10 @@ function wall(player) {
 	}
 	length = Math.floor(length * 1.5);
 	wallLoc = [null];
-	genWall();
 
 	setTimeout(function() {
 		deWall(player, length);
+		genWall();
 	}, gameSpeed * (length + 1));
 }
 
@@ -606,14 +606,14 @@ function deWall(player, length) {
 		case 2:
 			p2.walling = false;
 			for (var i = 0; i < length; i++) {
-				if (p1.snake.length > 2)
+				if (p2.snake.length > 2)
 					p2.snake.pop();
 			}
 			break;
 		case 3:
 			p3.walling = false;
 			for (var i = 0; i < length; i++) {
-				if (p1.snake.length > 2)
+				if (p3.snake.length > 2)
 					p3.snake.pop();
 			}
 			break;

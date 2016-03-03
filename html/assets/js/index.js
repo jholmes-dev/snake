@@ -49,6 +49,11 @@ function setColor(num) {
 $("#start").click(function() {
 	socket.emit("start");
 });
+
+$("#snek").click(function() {
+	$("#canvas").css("background", "url('snek.jpg') center center no-repeat");
+	$("#canvas").css("background-size", "cover");
+});
 	
 // Handle directional inuput 
 $(window).keydown(function(e) {
