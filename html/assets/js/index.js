@@ -74,8 +74,8 @@ $(window).keydown(function(e) {
 // Initiate canvas things
 var canvas = document.getElementById("canvas"),
 	ctx = canvas.getContext("2d"),
-	cW = 399,
-	cH = 399;
+	cW = 799,
+	cH = 799;
 
 ctx.canvas.width = cW;
 ctx.canvas.height = cH;

@@ -13,15 +13,17 @@ app.get('/', function(req, res) {
 
 });
 
-var gameSpeed = 75;
+var surTimer;
+
+var gameSpeed = 50;
 var started = false;
 var renderLoop;
 var pNum = 0;
 var starLoc = [null]; 
 var powerUpLoc = [null];
 var wallLoc = [null];
-var boardW = 40;
-var boardH = 40;
+var boardW = 80;
+var boardH = 80;
 var board = [],
 	boardIni = false;
 
@@ -168,6 +170,8 @@ function stopGame() {
 
 
 function resetGame() {
+	clearInterval(surTimer);
+
 	p1.snake = [[3, 1], [2, 1], [1, 1]];
 	p1.direction = "right";
 	p1.grow = false;
@@ -473,6 +477,12 @@ function iniBoard() {
 		}
 		boardIni = true;
 	}
+
+	surTimer = setInterval(function() {
+		p1.grow = true;
+		p2.grow = true;
+		p3.grow = true;
+	}, 100);
 
 	// Set up sneks...
 	if (p1.socket != null) {
