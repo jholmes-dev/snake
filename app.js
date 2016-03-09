@@ -15,15 +15,17 @@ app.get('/', function(req, res) {
 
 var surTimer;
 
-var gameSpeed = 50;
+var gameSpeed = 75;
 var started = false;
 var renderLoop;
 var pNum = 0;
 var starLoc = [null]; 
 var powerUpLoc = [null];
+var powerUpTimer;
 var wallLoc = [null];
-var boardW = 80;
-var boardH = 80;
+var wallTimer;
+var boardW = 40;
+var boardH = 40;
 var board = [],
 	boardIni = false;
 
@@ -171,6 +173,12 @@ function stopGame() {
 
 function resetGame() {
 	clearInterval(surTimer);
+	clearInterval(powerUpTimer);
+	clearInterval(wallTimer);
+
+	starLoc = [null];
+	powerUpLoc = [null];
+	wallLoc = [null];
 
 	p1.snake = [[3, 1], [2, 1], [1, 1]];
 	p1.direction = "right";
@@ -478,12 +486,6 @@ function iniBoard() {
 		boardIni = true;
 	}
 
-	surTimer = setInterval(function() {
-		p1.grow = true;
-		p2.grow = true;
-		p3.grow = true;
-	}, 100);
-
 	// Set up sneks...
 	if (p1.socket != null) {
 		for (var i = 0; i < p1.snake.length; i++) {
@@ -521,7 +523,7 @@ function genStar() {
 // Generates a powerup for cutting off tails n such
 function genPower() {
 	if (pNum >= 2) {
-		setTimeout(function() {
+		powerUpTimer = setTimeout(function() {
 			do {
 				powerUpLoc[0] = Math.floor(Math.random() * board.length);
 				powerUpLoc[1] = Math.floor(Math.random() * board.length);
@@ -533,7 +535,7 @@ function genPower() {
 // Generates a power up for walling n such
 function genWall() {
 	if (pNum >= 2) {
-		setTimeout(function() {
+		wallTimer = setTimeout(function() {
 			do {
 				wallLoc[0] = Math.floor(Math.random() * board.length);
 				wallLoc[1] = Math.floor(Math.random() * board.length);
