@@ -15,7 +15,8 @@
     "jsonwebtoken": "^5.7.0",
     "mongodb": "^2.2.36",
     "random-token": "0.0.8",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "websocket": "^1.0.28"
   },
   "engines": {
     "node": ">=8.11.1",
