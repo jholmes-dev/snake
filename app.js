@@ -633,4 +633,4 @@ function deWall(player, length) {
 }
 
 
-http.listen(3001, console.log("Listening on *:3001"));
+http.listen(process.env.PORT || 5000, console.log("Listening on *:3001"));
