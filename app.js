@@ -24,8 +24,8 @@ var powerUpLoc = [null];
 var powerUpTimer;
 var wallLoc = [null];
 var wallTimer;
-var boardW = 150;
-var boardH = 150;
+var boardW = 80;
+var boardH = 80;
 var board = [],
 	boardIni = false;
 

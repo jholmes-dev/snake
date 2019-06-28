@@ -105,7 +105,7 @@ function render(board, starLoc, powerLoc, wallLoc) {
 
 function drawBlock(x, y, color) {
 	ctx.fillStyle = color;
-	ctx.fillRect(x*20, y*20, 19, 19);
+	ctx.fillRect(x*10, y*10, 9, 9);
 }
 
 socket.on("winner", function(text) {
