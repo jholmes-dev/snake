@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 
 var surTimer;
 
-var gameSpeed = 100;
+var gameSpeed = 50;
 var started = false;
 var renderLoop;
 var pNum = 0;
