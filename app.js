@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 
 var surTimer;
 
-var gameSpeed = 50;
+var gameSpeed = 75;
 var started = false;
 var renderLoop;
 var pNum = 0;
@@ -24,8 +24,8 @@ var powerUpLoc = [null];
 var powerUpTimer;
 var wallLoc = [null];
 var wallTimer;
-var boardW = 80;
-var boardH = 80;
+var boardW = 40;
+var boardH = 40;
 var board = [],
 	boardIni = false;
 
