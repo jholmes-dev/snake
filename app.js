@@ -35,7 +35,7 @@ var p1 = {
 	snake: [[3, 1], [2, 1], [1, 1]],
 	direction: "right",
 	olddir: null,
-	grow: false,
+	grow: 0,
 	walling: false,
 	dead: false,
 	score: 0
@@ -47,7 +47,7 @@ var p2 = {
 	snake: [[boardW-2, 3], [boardW-2, 2], [boardW-2, 1]],
 	direction: "down",
 	olddir: null,
-	grow: false,
+	grow: 0,
 	walling: false,
 	dead: false,
 	score: 0
@@ -59,7 +59,7 @@ var p3 = {
 	snake: [[boardW-4, boardH-2], [boardW-3, boardH-2], [boardW-2, boardW-2]],
 	direction: "left",
 	olddir: null,
-	grow: false,
+	grow: 0,
 	walling: false,
 	dead: false,
 	score: 0
@@ -182,19 +182,19 @@ function resetGame() {
 
 	p1.snake = [[3, 1], [2, 1], [1, 1]];
 	p1.direction = "right";
-	p1.grow = false;
+	p1.grow = 0;
 	p1.dead = false;
 	p1.score = 0;
 
 	p2.snake = [[boardW-2, 3], [boardW-2, 2], [boardW-2, 1]];
 	p2.direction = "down";
-	p2.grow = false;
+	p2.grow = 0;
 	p2.dead = false;
 	p2.score = 0;
 
 	p3.snake = [[boardW-4, boardH-2], [boardW-3, boardH-2], [boardW-2, boardW-2]];
 	p3.direction = "left";
-	p3.grow = false;
+	p3.grow = 0;
 	p3.dead = false;
 	p3.score = 0;
 
@@ -260,11 +260,11 @@ function render() {
 				tempX = locTempX;
 				tempY = locTempY;
 
-				if (i == (p1.snake.length - 1) && p1.grow == false && p1.walling == false) {
+				if (i == (p1.snake.length - 1) && p1.grow == 0 && p1.walling == false) {
 					board[tempX][tempY] = null;
 				} // Delete the last link if it's not time to grow
-				else if ((i == (p1.snake.length - 1)) && (p1.grow == true || p1.walling == true)) {
-					p1.grow = false;
+				else if ((i == (p1.snake.length - 1)) && (p1.grow > 0 || p1.walling == true)) {
+					p1.grow--;
 					p1.snake.push([tempX, tempY]);
 					break;
 				}
@@ -319,11 +319,11 @@ function render() {
 				tempX = locTempX;
 				tempY = locTempY;
 
-				if (i == (p2.snake.length - 1) && p2.grow == false && p2.walling == false) {
+				if (i == (p2.snake.length - 1) && p2.grow == 0 && p2.walling == false) {
 					board[tempX][tempY] = null;
 				} // Delete the last link if it's not time to grow
-				else if ((i == (p2.snake.length - 1)) && (p2.grow == true || p2.walling == true)) {
-					p2.grow = false;
+				else if ((i == (p2.snake.length - 1)) && (p2.grow > 0 || p2.walling == true)) {
+					p2.grow--;
 					p2.snake.push([tempX, tempY]);
 					break;
 				}
@@ -376,11 +376,11 @@ function render() {
 				tempX = locTempX;
 				tempY = locTempY;
 
-				if (i == (p3.snake.length - 1) && p3.grow == false && p3.walling == false) {
+				if (i == (p3.snake.length - 1) && p3.grow == 0 && p3.walling == false) {
 					board[tempX][tempY] = null;
 				} // Delete the last link if it's not time to grow
-				else if ((i == (p3.snake.length - 1)) && (p3.grow == true || p3.walling == true)) {
-					p3.grow = false;
+				else if ((i == (p3.snake.length - 1)) && (p3.grow > 0 || p3.walling == true)) {
+					p3.grow--;
 					p3.snake.push([tempX, tempY]);
 					break;
 				}
@@ -392,17 +392,17 @@ function render() {
 	var locChk = board[starLoc[0]][starLoc[1]];
 	if (locChk != null) {
 		if (p1.snake[0][0] == starLoc[0] && p1.snake[0][1] == starLoc[1]) {
-			p1.grow = true;
+			p1.grow = 3;
 			p1.score++;
 			genStar();
 		}
 		else if (p2.snake[0][0] == starLoc[0] && p2.snake[0][1] == starLoc[1]) {
-			p2.grow = true;
+			p2.grow = 3;
 			p2.score++;
 			genStar();
 		}
 		else if (p3.snake[0][0] == starLoc[0] && p3.snake[0][1] == starLoc[1]) {
-			p3.grow = true;
+			p3.grow = 3;
 			p3.score++;
 			genStar();
 		}
