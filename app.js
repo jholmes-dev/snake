@@ -392,17 +392,17 @@ function render() {
 	var locChk = board[starLoc[0]][starLoc[1]];
 	if (locChk != null) {
 		if (p1.snake[0][0] == starLoc[0] && p1.snake[0][1] == starLoc[1]) {
-			p1.grow = 3;
+			p1.grow = 10;
 			p1.score++;
 			genStar();
 		}
 		else if (p2.snake[0][0] == starLoc[0] && p2.snake[0][1] == starLoc[1]) {
-			p2.grow = 3;
+			p2.grow = 10;
 			p2.score++;
 			genStar();
 		}
 		else if (p3.snake[0][0] == starLoc[0] && p3.snake[0][1] == starLoc[1]) {
-			p3.grow = 3;
+			p3.grow = 10;
 			p3.score++;
 			genStar();
 		}
