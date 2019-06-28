@@ -260,7 +260,7 @@ function render() {
 				tempX = locTempX;
 				tempY = locTempY;
 
-				if (i == (p1.snake.length - 1) && p1.grow == 0 && p1.walling == false) {
+				if (i == (p1.snake.length - 1) && p1.grow <= 0 && p1.walling == false) {
 					board[tempX][tempY] = null;
 				} // Delete the last link if it's not time to grow
 				else if ((i == (p1.snake.length - 1)) && (p1.grow > 0 || p1.walling == true)) {
@@ -319,7 +319,7 @@ function render() {
 				tempX = locTempX;
 				tempY = locTempY;
 
-				if (i == (p2.snake.length - 1) && p2.grow == 0 && p2.walling == false) {
+				if (i == (p2.snake.length - 1) && p2.grow <= 0 && p2.walling == false) {
 					board[tempX][tempY] = null;
 				} // Delete the last link if it's not time to grow
 				else if ((i == (p2.snake.length - 1)) && (p2.grow > 0 || p2.walling == true)) {
@@ -376,7 +376,7 @@ function render() {
 				tempX = locTempX;
 				tempY = locTempY;
 
-				if (i == (p3.snake.length - 1) && p3.grow == 0 && p3.walling == false) {
+				if (i == (p3.snake.length - 1) && p3.grow <= 0 && p3.walling == false) {
 					board[tempX][tempY] = null;
 				} // Delete the last link if it's not time to grow
 				else if ((i == (p3.snake.length - 1)) && (p3.grow > 0 || p3.walling == true)) {
