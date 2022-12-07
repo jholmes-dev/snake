@@ -13,7 +13,7 @@
     "jquery": "^3.4.1",
     "js-sha256": "^0.3.2",
     "jsonwebtoken": "^5.7.0",
-    "mongodb": "^2.2.36",
+    "mongodb": "^4.12.1",
     "random-token": "0.0.8",
     "socket.io": "^2.2.0",
     "websocket": "^1.0.28"
